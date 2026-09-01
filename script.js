@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Scroll reveal animation ---------- */
   const revealTargets = document.querySelectorAll(
-    '.concept__text, .concept__stats, .menu-card, .access__map, .access__info'
+    '.concept__text, .concept__stats, .menu-card, .access__map, .access__info, .contact__form'
   );
   revealTargets.forEach((el) => el.setAttribute('data-reveal', ''));
 
@@ -110,6 +110,70 @@ document.addEventListener('DOMContentLoaded', () => {
     { threshold: 0.15 }
   );
   revealTargets.forEach((el) => revealObserver.observe(el));
+
+  /* ---------- Contact form validation ---------- */
+  const contactForm = document.getElementById('contactForm');
+
+  if (contactForm) {
+    const fields = {
+      name: {
+        input: document.getElementById('contact-name'),
+        error: document.getElementById('error-name'),
+        required: 'お名前を入力してください',
+      },
+      email: {
+        input: document.getElementById('contact-email'),
+        error: document.getElementById('error-email'),
+        required: 'メールアドレスを入力してください',
+      },
+      message: {
+        input: document.getElementById('contact-message'),
+        error: document.getElementById('error-message'),
+        required: 'お問い合わせ内容を入力してください',
+      },
+    };
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const setError = (field, message) => {
+      field.input.closest('.form-group').classList.toggle('has-error', Boolean(message));
+      field.error.textContent = message;
+    };
+
+    const validateField = (key) => {
+      const field = fields[key];
+      const value = field.input.value.trim();
+
+      if (!value) {
+        setError(field, field.required);
+        return false;
+      }
+      if (key === 'email' && !emailPattern.test(value)) {
+        setError(field, 'メールアドレスの形式が正しくありません');
+        return false;
+      }
+      setError(field, '');
+      return true;
+    };
+
+    Object.keys(fields).forEach((key) => {
+      fields[key].input.addEventListener('blur', () => validateField(key));
+    });
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const isValid = Object.keys(fields)
+        .map((key) => validateField(key))
+        .every(Boolean);
+
+      if (!isValid) return;
+
+      alert('送信しました');
+      contactForm.reset();
+      Object.keys(fields).forEach((key) => setError(fields[key], ''));
+    });
+  }
 
   /* ---------- Back-to-top button ---------- */
   const toTop = document.getElementById('toTop');
