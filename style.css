@@ -210,7 +210,9 @@ img { max-width: 100%; display: block; }
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 560px;
+  /* 低い画面でボタンとスクロール表示が重ならず、大きい画面で間延びしない範囲に収める */
+  min-height: 640px;
+  max-height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -279,7 +281,7 @@ img { max-width: 100%; display: block; }
 
 .scroll-cue {
   position: absolute;
-  bottom: 40px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
