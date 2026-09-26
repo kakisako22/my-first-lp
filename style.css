@@ -136,6 +136,12 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 24px rgba(36, 26, 20, 0.06);
 }
+/* ヒーローがないサブページ用：最初から背景付きのヘッダーにする */
+.header--solid {
+  padding: 14px 0;
+  background: var(--color-bg);
+  box-shadow: 0 4px 24px rgba(36, 26, 20, 0.06);
+}
 
 .logo {
   display: flex;
@@ -148,7 +154,8 @@ img { max-width: 100%; display: block; }
   color: var(--color-text-light);
   transition: color var(--transition);
 }
-.header.is-scrolled .logo { color: var(--color-dark); }
+.header.is-scrolled .logo,
+.header--solid .logo { color: var(--color-dark); }
 .logo__mark { font-size: 1.1rem; }
 
 .nav__list {
@@ -163,7 +170,8 @@ img { max-width: 100%; display: block; }
   padding-bottom: 4px;
   transition: color var(--transition);
 }
-.header.is-scrolled .nav__link { color: var(--color-text); }
+.header.is-scrolled .nav__link,
+.header--solid .nav__link { color: var(--color-text); }
 .nav__link::after {
   content: "";
   position: absolute;
@@ -190,13 +198,21 @@ img { max-width: 100%; display: block; }
   background: var(--color-text-light);
   transition: var(--transition);
 }
-.header.is-scrolled .hamburger span { background: var(--color-dark); }
+.header.is-scrolled .hamburger span,
+.header--solid .hamburger span { background: var(--color-dark); }
+/* メニューを開いたときは暗い背景の上で見えるよう明るい色の「×」にする */
+.header .hamburger.is-open span { background: var(--color-text-light); }
+.hamburger.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; }
+.hamburger.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 560px;
+  /* 低い画面でボタンとスクロール表示が重ならず、大きい画面で間延びしない範囲に収める */
+  min-height: 640px;
+  max-height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,7 +281,7 @@ img { max-width: 100%; display: block; }
 
 .scroll-cue {
   position: absolute;
-  bottom: 40px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -374,6 +390,8 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 28px;
 }
+/* display: grid が hidden 属性を打ち消すため、非表示のタブパネルを明示的に隠す */
+.menu__grid[hidden] { display: none; }
 .menu-card {
   background: rgba(253, 249, 242, 0.04);
   border: 1px solid rgba(232, 205, 154, 0.15);
@@ -524,6 +542,114 @@ img { max-width: 100%; display: block; }
   border-color: var(--color-dark);
 }
 
+/* ---------- Profile（自己紹介ページ） ---------- */
+.profile {
+  padding: 140px 0 100px;
+}
+.profile__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+.profile__photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--color-bg-soft);
+  border: 2px solid var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+.profile__name-en {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  color: var(--color-brown);
+}
+.profile__name-ja {
+  font-family: var(--font-mincho);
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+.profile__bio {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ---------- Skills（自己紹介ページ） ---------- */
+.skills {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--color-dark) 0%, var(--color-dark-soft) 100%);
+}
+.skills__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.skills__card {
+  border: 1px solid var(--color-gold-light);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+.skills__name {
+  font-family: var(--font-serif);
+  letter-spacing: 0.08em;
+  font-size: 1.05rem;
+  color: var(--color-gold-light);
+  margin-bottom: 10px;
+}
+.skills__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ---------- Links（自己紹介ページ） ---------- */
+.links {
+  padding: 100px 0 120px;
+}
+.links__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 36px;
+}
+.links__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--color-brown);
+}
+.links__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold-light);
+  transition: var(--transition);
+}
+.links__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-brown);
+  transition: fill var(--transition);
+}
+.links__item:hover .links__icon { background: var(--color-gold-light); }
+.links__item:hover .links__icon svg { fill: var(--color-dark); }
+
 /* ---------- Footer ---------- */
 .footer {
   background: var(--color-dark);
@@ -541,13 +667,28 @@ img { max-width: 100%; display: block; }
 .footer__sns {
   display: flex;
   justify-content: center;
-  gap: 22px;
+  gap: 16px;
   margin-bottom: 24px;
-  font-family: var(--font-serif);
-  letter-spacing: 0.1em;
 }
-.footer__sns a { transition: color var(--transition); }
-.footer__sns a:hover { color: var(--color-gold-light); }
+/* 自己紹介ページの SNS リンクと同じ丸枠アイコン（暗い背景向けの配色） */
+.footer__sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 205, 154, 0.4);
+  transition: var(--transition);
+}
+.footer__sns-link svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-gold-light);
+  transition: fill var(--transition);
+}
+.footer__sns-link:hover { background: var(--color-gold-light); }
+.footer__sns-link:hover svg { fill: var(--color-dark); }
 .footer__copy { font-size: 0.78rem; }
 
 /* ---------- To top ---------- */
@@ -599,6 +740,8 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 720px) {
   .hamburger { display: flex; }
+  /* backdrop-filter があると固定配置のメニューがヘッダー内に閉じ込められるため外す */
+  .header.is-scrolled { backdrop-filter: none; }
 
   .nav {
     position: fixed;
@@ -618,6 +761,18 @@ img { max-width: 100%; display: block; }
     gap: 32px;
   }
   .nav__link { font-size: 1.3rem; color: var(--color-text-light); }
+  /* ヘッダーの状態に関係なく、開いたメニュー内のリンクは明るい色にする */
+  .nav.is-open .nav__link { color: var(--color-text-light); }
 
   .concept, .menu, .access { padding: 100px 0; }
+}
+
+@media (max-width: 600px) {
+  .profile { padding: 110px 0 70px; }
+  .profile__head {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .skills, .links { padding: 70px 0; }
+  .skills__list { grid-template-columns: 1fr; }
 }

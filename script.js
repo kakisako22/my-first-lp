@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Loader ---------- */
   const loader = document.getElementById('loader');
-  window.addEventListener('load', () => {
-    setTimeout(() => loader.classList.add('is-hidden'), 300);
-  });
+  if (loader) {
+    window.addEventListener('load', () => {
+      setTimeout(() => loader.classList.add('is-hidden'), 300);
+    });
+  }
 
   /* ---------- Header background on scroll ---------- */
   const header = document.getElementById('header');
@@ -56,22 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('.nav__link');
 
-  const setActiveLink = () => {
-    let currentId = '';
-    const scrollPos = window.scrollY + headerHeight() + 40;
+  if (sections.length) {
+    const setActiveLink = () => {
+      let currentId = '';
+      const scrollPos = window.scrollY + headerHeight() + 40;
 
-    sections.forEach((section) => {
-      if (scrollPos >= section.offsetTop) {
-        currentId = section.id;
-      }
-    });
+      sections.forEach((section) => {
+        if (scrollPos >= section.offsetTop) {
+          currentId = section.id;
+        }
+      });
 
-    navLinks.forEach((link) => {
-      link.classList.toggle('is-active', link.getAttribute('href') === `#${currentId}`);
-    });
-  };
-  setActiveLink();
-  window.addEventListener('scroll', setActiveLink);
+      navLinks.forEach((link) => {
+        link.classList.toggle('is-active', link.getAttribute('href') === `#${currentId}`);
+      });
+    };
+    setActiveLink();
+    window.addEventListener('scroll', setActiveLink);
+  }
 
   /* ---------- Menu tabs (Coffee / Sweets) ---------- */
   const tabs = document.querySelectorAll('.menu__tab');
@@ -177,7 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Back-to-top button ---------- */
   const toTop = document.getElementById('toTop');
-  window.addEventListener('scroll', () => {
-    toTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.8);
-  });
+  if (toTop) {
+    window.addEventListener('scroll', () => {
+      toTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.8);
+    });
+  }
 });
