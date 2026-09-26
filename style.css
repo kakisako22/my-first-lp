@@ -667,13 +667,28 @@ img { max-width: 100%; display: block; }
 .footer__sns {
   display: flex;
   justify-content: center;
-  gap: 22px;
+  gap: 16px;
   margin-bottom: 24px;
-  font-family: var(--font-serif);
-  letter-spacing: 0.1em;
 }
-.footer__sns a { transition: color var(--transition); }
-.footer__sns a:hover { color: var(--color-gold-light); }
+/* 自己紹介ページの SNS リンクと同じ丸枠アイコン（暗い背景向けの配色） */
+.footer__sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 205, 154, 0.4);
+  transition: var(--transition);
+}
+.footer__sns-link svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-gold-light);
+  transition: fill var(--transition);
+}
+.footer__sns-link:hover { background: var(--color-gold-light); }
+.footer__sns-link:hover svg { fill: var(--color-dark); }
 .footer__copy { font-size: 0.78rem; }
 
 /* ---------- To top ---------- */
