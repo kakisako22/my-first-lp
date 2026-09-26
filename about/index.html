@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自己紹介 | CAFÉ MORI</title>
+<meta name="description" content="CAFÉ MORI 店長・垣迫ひかるの自己紹介ページです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="../index.html" class="logo" data-nav>
+      <span class="logo__mark">☕</span>
+      <span class="logo__text">CAFÉ MORI</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <ul class="nav__list">
+        <li><a href="../index.html#concept" class="nav__link" data-nav>コンセプト</a></li>
+        <li><a href="../index.html#menu" class="nav__link" data-nav>メニュー</a></li>
+        <li><a href="../index.html#access" class="nav__link" data-nav>アクセス</a></li>
+        <li><a href="index.html" class="nav__link is-active" data-nav>自己紹介</a></li>
+        <li><a href="../index.html#contact" class="nav__link" data-nav>お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- PROFILE -->
+  <section class="profile">
+    <div class="section-inner">
+      <p class="section-eyebrow">ABOUT</p>
+      <h1 class="section-title">自己紹介</h1>
+
+      <div class="profile__head">
+        <div class="profile__photo" aria-hidden="true">☕</div>
+        <div class="profile__name">
+          <p class="profile__name-en">Hikaru</p>
+          <p class="profile__name-ja">ひかる</p>
+        </div>
+      </div>
+
+      <p class="profile__bio">
+        はじめまして。<br>
+        CAFÉ MORI 店長のひかるです。<br>
+        学生時代のカフェ巡りをきっかけに珈琲の奥深さにひかれ、<br>
+        焙煎所での修行を経てこの店をオープンしました。<br>
+        一杯一杯、豆と向き合いながら丁寧に淹れることを大切にしています。<br>
+        森の中で過ごすような静かなひとときを、ぜひ味わいにいらしてください。
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills">
+    <div class="section-inner">
+      <p class="section-eyebrow section-eyebrow--light">SKILLS</p>
+      <h2 class="section-title section-title--light">スキル・趣味</h2>
+
+      <ul class="skills__list">
+        <li class="skills__card">
+          <p class="skills__name">ハンドドリップ</p>
+          <p class="skills__desc">豆の個性に合わせてお湯の温度と注ぎ方を微調整し、一杯ごとに味を仕上げます。</p>
+        </li>
+        <li class="skills__card">
+          <p class="skills__name">浅煎り焙煎</p>
+          <p class="skills__desc">素材そのものの香りと酸味を活かす浅煎りが得意。焙煎度合いは自家調整しています。</p>
+        </li>
+        <li class="skills__card">
+          <p class="skills__name">ラテアート</p>
+          <p class="skills__desc">ハートやリーフなど、定番の模様を一杯ずつ丁寧に描いています。</p>
+        </li>
+        <li class="skills__card">
+          <p class="skills__name">豆の目利き</p>
+          <p class="skills__desc">産地や農園ごとの違いを飲み比べ、季節に合わせて豆を選定しています。</p>
+        </li>
+        <li class="skills__card">
+          <p class="skills__name">コーヒー巡り（趣味）</p>
+          <p class="skills__desc">お休みの日は近隣の珈琲店を食べ歩き、新しい味との出会いを楽しんでいます。</p>
+        </li>
+        <li class="skills__card">
+          <p class="skills__name">写真撮影（趣味）</p>
+          <p class="skills__desc">店内の一杯やお客様との一コマを、日々カメラに収めています。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section class="links">
+    <div class="section-inner">
+      <p class="section-eyebrow">CONTACT</p>
+      <h2 class="section-title">SNS・連絡先</h2>
+
+      <ul class="links__list">
+        <li>
+          <a href="#" class="links__item" aria-label="Instagram">
+            <span class="links__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.9 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.9 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.36-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.06-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+            </span>
+            <span class="links__label">Instagram</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="links__item" aria-label="X (Twitter)">
+            <span class="links__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+            </span>
+            <span class="links__label">X (Twitter)</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:example@example.com" class="links__item" aria-label="Email">
+            <span class="links__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm1.4 2 8.6 6.45L20.6 6H3.4zM3 8.2V18h18V8.2l-9 6.75L3 8.2z"/></svg>
+            </span>
+            <span class="links__label">Email</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__logo">CAFÉ MORI</p>
+    <p class="footer__copy">&copy; 2026 CAFÉ MORI. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
