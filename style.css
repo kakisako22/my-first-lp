@@ -388,6 +388,8 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 28px;
 }
+/* display: grid が hidden 属性を打ち消すため、非表示のタブパネルを明示的に隠す */
+.menu__grid[hidden] { display: none; }
 .menu-card {
   background: rgba(253, 249, 242, 0.04);
   border: 1px solid rgba(232, 205, 154, 0.15);
